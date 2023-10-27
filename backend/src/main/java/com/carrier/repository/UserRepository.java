@@ -8,4 +8,5 @@ import com.carrier.entities.UserModel;
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Long> {
 
+	public UserModel findByEmail(String email);
 }

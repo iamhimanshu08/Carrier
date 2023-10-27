@@ -1,7 +1,10 @@
 package com.carrier.controller;
 
 
+
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,9 +30,30 @@ public class UserController {
 	@Autowired	
 	private UserServiceImpl service;
 	
+	
+	
+	
 	@PostMapping("/register")
-	private ResponseEntity<UserModel> registerUser(@RequestBody UserModel user){
-		return new ResponseEntity<>(service.registerUser(user), HttpStatus.CREATED);		
+	private ResponseEntity<UserModel> registerUser(@RequestBody UserModel user, HttpServletResponse response){
+		
+//		UserDetails userDetails = new User(user.getEmail(), password, new ArrayList<>());
+//		String token = util.generateToken(userDetails);
+//		Map<String, String> map = new HashMap<>();
+//		map.put("token", token);
+//		try {
+//			new ObjectMapper().writeValue(response.getOutputStream(), map);
+//		} catch (StreamWriteException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (DatabindException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		 
+		return new ResponseEntity<>(service.registerUser(user, response), HttpStatus.CREATED);		
 	}
 	
 	@GetMapping("")
@@ -51,4 +75,6 @@ public class UserController {
 	private ResponseEntity<UserModel> updateUserById(@RequestBody UserModel user, @PathVariable long id){
 		return new ResponseEntity<>(service.updateUserById(user,id), HttpStatus.OK);		
 	}
+	
+	
 }

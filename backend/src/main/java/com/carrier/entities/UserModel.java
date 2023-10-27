@@ -8,8 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-import com.sun.istack.NotNull;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,18 +24,19 @@ import lombok.NoArgsConstructor;
 public class UserModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
 	private Long id;
-	@NotNull
+	@NotEmpty
 	private String name;
-	@NotNull
+	@NotEmpty
 	@OneToMany(mappedBy = "address_id",cascade = CascadeType.ALL)
 	private Set<Address> address;
-	@NotNull
+	@NotEmpty
+	@Size(min = 10, max = 13)
 	private String mobile;
-	@NotNull
+	@NotEmpty
+	@Email
 	private String email;
-	@NotNull
+	@NotEmpty
 	private String password;
 	
 	
