@@ -1,0 +1,90 @@
+.my-container{
+    overflow: hidden;
+    border: 2px solid purple;
+    border-radius: 100px;
+}
+
+.login-img{
+    height: 100%;
+    overflow: hidden;
+}
+
+.login-card-main{
+    background-color: '#C1C1C1'
+}
+
+.login-card{
+    width: 60%;
+}
+
+.login-btn{
+    width: 60%;
+}
+
+.logo-img{
+    margin-right: '40px'
+}
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideLeftOriginal {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes slideRightOriginal {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* .login-state .img-container, */
+    .register-state .login-card-main{
+        animation: slideLeft 0.5s forwards;
+    }
+
+.register-state .img-container
+    /* .login-state .login-card-main */
+    {
+        animation: slideRight 0.5s forwards;
+    }
+
+    .login-state .login-card-main{
+        animation: slideRightOriginal 0.5s forwards;
+    }
+
+    .login-state .img-container{
+        animation: slideLeftOriginal 0.5s forwards;
+    }
+
+   
